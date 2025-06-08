@@ -40,8 +40,8 @@ Bu proje, dosya transferi sürecinde veri güvenliği, bütünlüğü ve düşü
 
 ##  Ağ Performans Ölçümü
 
--  RTT/Ping ölçümü (`ping_test`)
--  Bant genişliği analizi (`iperf3_test`)
+-  RTT/Ping ölçümü (`performance_test`)
+-  Bant genişliği analizi (`iperf3`)
 -  Paket kaybı ve gecikme simülasyonu (`network.sh`)
 -  Farklı bağlantı koşulları testleri (loopback, Wi-Fi vb.)
 
