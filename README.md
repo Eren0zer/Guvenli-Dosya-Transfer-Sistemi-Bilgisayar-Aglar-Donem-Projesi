@@ -132,8 +132,9 @@ Dosya-Transfer-Sistemi/
 ├── saldırı_simülasyonu/              # Gelişmiş saldırı senaryoları
 │   ├── fake_udp_flood.py              # UDP flood saldırısı gerçekleştiren sahte istemci
 │   └── fake_udp_invalid_packet.py     # 12 bayttan az veri ile yapılan geçersiz UDP paketi saldırısı
-
-
+│
+└── proje_gorselleri/
+    └── ...
 ```
 
 
