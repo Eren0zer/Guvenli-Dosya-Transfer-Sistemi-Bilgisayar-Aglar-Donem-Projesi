@@ -47,7 +47,7 @@ Bu proje, dosya transferi sürecinde veri güvenliği, bütünlüğü ve düşü
 
 ---
 
-## 📘 Log Kayıt Sistemi
+## Log Kayıt Sistemi
 
 Tüm işlem kayıtları zaman damgası ile birlikte `log.txt` dosyasına yazılır. Sistem genelindeki olaylar aşağıdaki log kategorileriyle sınıflandırılır:
 
@@ -99,6 +99,40 @@ python keygen.py
 python performance_test.py
 python sender.py     
 ```
+---
+##  Proje Görselleri
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="proje_gorselleri/fakebaglantı.png" width="220"/><br/>
+      <sub> Sahte TCP bağlantısı kurulumu</sub>
+    </td>
+    <td align="center">
+      <img src="proje_gorselleri/ip_engelleme_sistemi.png" width="220"/><br/>
+      <sub> IP engelleme ve karantina sistemi</sub>
+    </td>
+    <td align="center">
+      <img src="proje_gorselleri/mitm.png" width="220"/><br/>
+      <sub> MITM (Man-in-the-Middle) saldırı simülasyonu</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="proje_gorselleri/pcapdosyasıalma.png" width="220"/><br/>
+      <sub> Wireshark ile  PCAP kaydının alınması</sub>
+    </td>
+    <td align="center">
+      <img src="proje_gorselleri/tcp_pcap_ciktisi.png" width="220"/><br/>
+      <sub> TCP ile gönderilen verinin PCAP çıktısı</sub>
+    </td>
+    <td align="center">
+      <img src="proje_gorselleri/iperf_network_sh_calistirma.png" width="220"/><br/>
+      <sub> iPerf ile ağ performans testi</sub>
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## 📁 Proje Klasör Yapısı
