@@ -1,0 +1,40 @@
+╔════════════════════════════════════════════╗
+║           AĞ PERFORMANS RAPORU            ║
+╚════════════════════════════════════════════╝
+
+🕒 Tarih: 2025-05-25 20:10:59.149757
+🎯 Test Hedefi: 192.168.188.81:5201
+
+═══════════════════════
+🕒 PING TESTİ SONUCU:
+═══════════════════════
+
+Pinging 192.168.188.81 with 32 bytes of data:
+Reply from 192.168.188.81: bytes=32 time<1ms TTL=64
+Reply from 192.168.188.81: bytes=32 time<1ms TTL=64
+Request timed out.
+Reply from 192.168.188.81: bytes=32 time=179ms TTL=64
+
+Ping statistics for 192.168.188.81:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 179ms, Average = 59ms
+
+
+═══════════════════════
+🚀 IPERF3 BAND GENİŞLİĞİ:
+═══════════════════════
+Connecting to host 192.168.188.81, port 5201
+[  5] local 192.168.188.23 port 56775 connected to 192.168.188.81 port 5201
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.56   sec  0.00 Bytes  0.00 bits/sec                  
+[  5]   1.56-2.00   sec   256 KBytes  4.77 Mbits/sec                  
+[  5]   2.00-3.00   sec   128 KBytes  1.05 Mbits/sec                  
+[  5]   3.00-4.00   sec   384 KBytes  3.14 Mbits/sec                  
+[  5]   4.00-5.00   sec  6.50 MBytes  54.6 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-5.00   sec  7.25 MBytes  12.2 Mbits/sec                  sender
+[  5]   0.00-5.23   sec  6.88 MBytes  11.0 Mbits/sec                  receiver
+
+iperf Done.
