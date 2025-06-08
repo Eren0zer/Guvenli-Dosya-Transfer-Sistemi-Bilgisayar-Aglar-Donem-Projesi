@@ -8,6 +8,10 @@ Bu proje, dosya transferi sürecinde veri güvenliği, bütünlüğü ve düşü
 ---
 
 ##  Güvenlik Mekanizmaları
+- Projenin tüm aşamalarını ve işleyişini açıklayan tanıtım videosuna aşağıdaki bağlantıdan ulaşabilirsiniz:
+- [YouTube Tanıtım Videosu](https://www.youtube.com/watch?v=WWUYnuw0x6U&ab_channel=Eren%C3%96zer)
+---
+##  Güvenlik Mekanizmaları
 
 -  **AES-256** ile her dosya parçası ayrı ayrı şifrelenir.
 -  **RSA-2048** ile AES anahtarı güvenle iletilir.
