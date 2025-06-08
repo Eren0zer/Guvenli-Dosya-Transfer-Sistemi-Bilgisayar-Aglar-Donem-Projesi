@@ -7,43 +7,43 @@ Bu proje, dosya transferi sürecinde veri güvenliği, bütünlüğü ve düşü
 
 ---
 
-## 🔐 Güvenlik Mekanizmaları
+##  Güvenlik Mekanizmaları
 
-- ✅ **AES-256** ile her dosya parçası ayrı ayrı şifrelenir.
-- ✅ **RSA-2048** ile AES anahtarı güvenle iletilir.
-- ✅ **SHA-256** hash fonksiyonu ile veri bütünlüğü sağlanır.
-- ✅ Kimlik doğrulama (Shared Secret) yapılır.
-- ✅ IP bazlı erişim kontrolü ve hatalı giriş engellemesi mevcuttur.
-
----
-
-## 🧬 Düşük Seviyeli IP Başlık İşleme
-
-- 📌 TTL, DF bayrağı, Fragment Offset ve Checksum değerleri `Scapy` kullanılarak manuel olarak ayarlanır.
-- 📥 Paketler Wireshark ve `tshark` üzerinden analiz edilir.
-- 📌 Header checksum fonksiyonu projeye entegre edilmiştir.
+-  **AES-256** ile her dosya parçası ayrı ayrı şifrelenir.
+-  **RSA-2048** ile AES anahtarı güvenle iletilir.
+-  **SHA-256** hash fonksiyonu ile veri bütünlüğü sağlanır.
+-  Kimlik doğrulama (Shared Secret) yapılır.
+-  IP bazlı erişim kontrolü ve hatalı giriş engellemesi mevcuttur.
 
 ---
 
-## ⚔️ Saldırı Simülasyonları
+##  Düşük Seviyeli IP Başlık İşleme
 
-- 🧨 **UDP Flood** saldırısı (`fake_udp_flood.py`)
-- 🧪 **Geçersiz UDP Paket** enjeksiyonu (`fake_udp_invalid_packet.py`)
-- 🧠 Flood algılama ve paket işleme sınırlandırması
-- ⛔ Geçersiz veri alanı olan UDP paketlerini reddetme ve programı kapatma
-
----
-
-## 📶 Ağ Performans Ölçümü
-
-- 🔁 RTT/Ping ölçümü (`ping_test`)
-- 🚀 Bant genişliği analizi (`iperf3_test`)
-- 📉 Paket kaybı ve gecikme simülasyonu (`network.sh`)
-- 📋 Farklı bağlantı koşulları testleri (loopback, Wi-Fi vb.)
+-  TTL, DF bayrağı, Fragment Offset ve Checksum değerleri `Scapy` kullanılarak manuel olarak ayarlanır.
+-  Paketler Wireshark ve `tshark` üzerinden analiz edilir.
+-  Header checksum fonksiyonu projeye entegre edilmiştir.
 
 ---
 
-## 📝 Log Kayıt Sistemi
+## ⚔ Saldırı Simülasyonları
+
+-  **UDP Flood** saldırısı (`fake_udp_flood.py`)
+-  **Geçersiz UDP Paket** enjeksiyonu (`fake_udp_invalid_packet.py`)
+-  Flood algılama ve paket işleme sınırlandırması
+-  Geçersiz veri alanı olan UDP paketlerini reddetme ve programı kapatma
+
+---
+
+##  Ağ Performans Ölçümü
+
+-  RTT/Ping ölçümü (`ping_test`)
+-  Bant genişliği analizi (`iperf3_test`)
+-  Paket kaybı ve gecikme simülasyonu (`network.sh`)
+-  Farklı bağlantı koşulları testleri (loopback, Wi-Fi vb.)
+
+---
+
+##  Log Kayıt Sistemi
 
 - `log.txt` içerisine zaman damgalı tüm olaylar kaydedilir.
   - [CONNECT], [AUTH], [KEY], [INFO], [FRAGMENT], [SUCCESS], [WARN], [THREAT] türleriyle sınıflandırılır.
@@ -52,7 +52,7 @@ Bu proje, dosya transferi sürecinde veri güvenliği, bütünlüğü ve düşü
 
 ---
 
-## 🧪 Kullanım
+##  Kullanım
 
 ### Gereksinimler
 
@@ -91,38 +91,33 @@ python sender.py
 
 ```
 Dosya-Transfer-Sistemi/
-├── receiver.py
-├── sender.py
-├── keygen.py
-├── test_crypto.py
-├── crypto_utils.py
-├── iface_finder.py
-├── kontrol.py
-├── failed_ips.json (çalışma sırasında otomatik oluşturulur)
-├── log.txt (çalışma sırasında otomatik oluşturulur)
-├── blocked_ips.txt (çalışma sırasında otomatik oluşturulur)
-├── private.pem (çalışma sırasında otomatik oluşturulur)
-├── public.pem (çalışma sırasında otomatik oluşturulur)
+├── receiver.py                        # Alıcı tarafı dinleyen ve dosya parçalarını birleştiren ana uygulama
+├── sender.py                          # Dosya gönderen, şifreleyen ve parçalayan ana uygulama
+├── keygen.py                          # RSA anahtar çifti oluşturan yardımcı araç
+├── test_crypto.py                     # AES ve RSA işlemlerini test etmek için kullanılan dosya
+├── crypto_utils.py                    # Şifreleme ve çözme işlemlerini içeren yardımcı modül
+├── iface_finder.py                    # Aktif ağ arayüzünü otomatik olarak belirler
+├── kontrol.py                         # Test amaçlı bir kontrol aracı (örnek yükleme, tetikleme vs.)
+├── failed_ips.json                    # Şifreyi 3 kez yanlış giren IP’leri kaydeden sistem dosyası
+├── log.txt                            # Tüm önemli olayların zaman damgalı genel log kaydı
+├── blocked_ips.txt                    # Engellenen IP adresleri (ör. brute-force sonrası)
+├── private.pem                        # RSA özel anahtarı (receiver tarafında oluşur)
+├── public.pem                         # RSA açık anahtarı (sender tarafına dağıtılır)
 │
-├── performans/
-│ ├── network.sh
-│ ├── performance_test.py
-│ ├── iperf_network_sh_calistirma.png
-│ ├── performance_results_2025-05-25_20-02-17.txt
-│ ├── performance_results_2025-05-25_20-03-43.txt
-│ ├── performance_results_2025-05-25_20-08-50.txt
-│ └── performance_results_2025-05-25_20-10-59.txt 
+├── performans/                        # Ağ performansı testleri ve sonuç dosyaları
+│   ├── network.sh                     # tc komutu ile gecikme ve kayıp simülasyonu yapan bash script
+│   ├── performance_test.py            # iPerf ve ping ile ağ testi yapan Python betiği
+│   ├── iperf_network_sh_calistirma.png# iPerf + network.sh örnek çalıştırma ekran görüntüsü
+│   ├── performance_results_*.txt      # Çeşitli tarihlerde alınmış performans test çıktıları
 │
-├── MITM_wireshark/   
-│ ├── fake_tcp_client.py
-│ ├── secure_transfer.pcap
-│ ├── udp_transfer.pcap
-│ ├── scale_sweep.csv 
-│ └── summary.csv
+├── MITM_wireshark/                    # MITM saldırısı ve Wireshark gözlemleri
+│   ├── fake_tcp_client.py             # Yanlış şifre ile sahte TCP bağlantı denemesi yapan istemci
+│   ├── secure_transfer.pcap           # Şifreli veri transferi sırasında alınan ağ trafiği (Wireshark)
+│   └── udp_transfer.pcap              # UDP üzerinden dosya aktarımı sırasında kaydedilen trafik
 │
-├── saldırı_simülasyonu/   
-│ ├── fake_udp_flood.py
-│ └── fake_udp_invalid_packet.py
+├── saldırı_simülasyonu/              # Gelişmiş saldırı senaryoları
+│   ├── fake_udp_flood.py              # UDP flood saldırısı gerçekleştiren sahte istemci
+│   └── fake_udp_invalid_packet.py     # 12 bayttan az veri ile yapılan geçersiz UDP paketi saldırısı
 
 
 ```
