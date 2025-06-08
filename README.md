@@ -79,8 +79,6 @@ Tüm işlem kayıtları zaman damgası ile birlikte `log.txt` dosyasına yazıl�
 
 ```bash
 pip install cryptography scapy
-pip install pycryptodome
-pip install colorama
 pip install npcap
 ```
 
