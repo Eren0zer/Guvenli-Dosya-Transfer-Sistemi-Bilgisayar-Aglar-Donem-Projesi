@@ -87,7 +87,45 @@ python sender.py
 ```
 ---
 
-## 📁 Klasör Yapısı
+## 📁 Proje Klasör Yapısı
+
+```
+Dosya-Transfer-Sistemi/
+├── receiver.py
+├── sender.py
+├── keygen.py
+├── test_crypto.py
+├── crypto_utils.py
+├── iface_finder.py
+├── kontrol.py
+├── failed_ips.json (çalışma sırasında otomatik oluşturulur)
+├── log.txt (çalışma sırasında otomatik oluşturulur)
+├── blocked_ips.txt (çalışma sırasında otomatik oluşturulur)
+├── private.pem (çalışma sırasında otomatik oluşturulur)
+├── public.pem (çalışma sırasında otomatik oluşturulur)
+│
+├── performans/
+│ ├── network.sh
+│ ├── performance_test.py
+│ ├── iperf_network_sh_calistirma.png
+│ ├── performance_results_2025-05-25_20-02-17.txt
+│ ├── performance_results_2025-05-25_20-03-43.txt
+│ ├── performance_results_2025-05-25_20-08-50.txt
+│ └── performance_results_2025-05-25_20-10-59.txt 
+│
+├── MITM_wireshark/   
+│ ├── fake_tcp_client.py
+│ ├── secure_transfer.pcap
+│ ├── udp_transfer.pcap
+│ ├── scale_sweep.csv 
+│ └── summary.csv
+│
+├── saldırı_simülasyonu/   
+│ ├── fake_udp_flood.py
+│ └── fake_udp_invalid_packet.py
+
+
+```
 
 
 
