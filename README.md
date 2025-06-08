@@ -43,13 +43,25 @@ Bu proje, dosya transferi sürecinde veri güvenliği, bütünlüğü ve düşü
 
 ---
 
-##  Log Kayıt Sistemi
+## 📘 Log Kayıt Sistemi
 
-- `log.txt` içerisine zaman damgalı tüm olaylar kaydedilir.
-  - [CONNECT], [AUTH], [KEY], [INFO], [FRAGMENT], [SUCCESS], [WARN], [THREAT] türleriyle sınıflandırılır.
-- `transfer_log.txt` dosyasına ise sadece transfer özetleri (fragment sayısı, eksikler vb.) yazılır.
-- Örnek bir log çıktısı:
+Tüm işlem kayıtları zaman damgası ile birlikte `log.txt` dosyasına yazılır. Sistem genelindeki olaylar aşağıdaki log kategorileriyle sınıflandırılır:
 
+| Kategori      | Açıklama                                                                 |
+|---------------|--------------------------------------------------------------------------|
+| `[CONNECT]`   | Alıcıya yapılan bağlantı girişimleri ve bağlanan IP bilgileri            |
+| `[AUTH]`      | Kimlik doğrulama işlemleri, başarılı/başarısız şifre denemeleri          |
+| `[KEY]`       | RSA ile AES anahtarı şifreleme ve çözme işlemleri                        |
+| `[INFO]`      | Dosya gönderimi/alımı, chunk sayısı gibi genel bilgiler                  |
+| `[FRAGMENT]`  | Fragment gönderimi ve başarılı alınan parçalar                           |
+| `[SUCCESS]`   | Tamamlanan işlemler (dosya alımı, şifre çözümü, vs.)                     |
+| `[WARN]`      | Eksik fragment, bağlantı problemleri, düşük RTT gibi uyarılar            |
+| `[THREAT]`    | Flood saldırısı, geçersiz UDP paketi gibi güvenlik tehditleri            |
+| `[SUMMARY]`   | Dosya transfer özet bilgileri (örneğin: `example.txt` → 9 parça)         |
+
+- log.txt dosyası hem TCP hem de UDP modlarında, hem gönderici (sender.py) hem de alıcı (receiver.py) tarafından güncellenir.
+
+- Sistem çalışırken .pem, sahte bağlantılar, flood denemeleri, şifre doğrulama gibi tüm önemli işlemler bu logda merkezi olarak izlenebilir.
 ---
 
 ##  Kullanım
@@ -108,7 +120,7 @@ Dosya-Transfer-Sistemi/
 │   ├── network.sh                     # tc komutu ile gecikme ve kayıp simülasyonu yapan bash script
 │   ├── performance_test.py            # iPerf ve ping ile ağ testi yapan Python betiği
 │   ├── iperf_network_sh_calistirma.png# iPerf + network.sh örnek çalıştırma ekran görüntüsü
-│   ├── performance_results_*.txt      # Çeşitli tarihlerde alınmış performans test çıktıları
+│   ├── performance_results_*.txt      # Çeşitli deney ortamlarında alınmış performans test çıktıları
 │
 ├── MITM_wireshark/                    # MITM saldırısı ve Wireshark gözlemleri
 │   ├── fake_tcp_client.py             # Yanlış şifre ile sahte TCP bağlantı denemesi yapan istemci
