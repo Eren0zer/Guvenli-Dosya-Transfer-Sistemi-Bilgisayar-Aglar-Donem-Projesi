@@ -25,7 +25,7 @@ Bu proje, dosya transferi sürecinde veri güvenliği, bütünlüğü ve düşü
 
 ---
 
-## ⚔ Saldırı Simülasyonları
+##  Saldırı Simülasyonları
 
 -  **UDP Flood** saldırısı (`fake_udp_flood.py`)
 -  **Geçersiz UDP Paket** enjeksiyonu (`fake_udp_invalid_packet.py`)
